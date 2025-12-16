@@ -1,70 +1,57 @@
 package com.devitro.database;
 
-import com.devitro.database.domain.dto.AuthorDto;
-import com.devitro.database.domain.dto.BookDto;
-import com.devitro.database.domain.entites.AuthorEntity;
-import com.devitro.database.domain.entites.BookEntity;
+import com.devitro.database.domain.Author;
+import com.devitro.database.domain.Book;
 
 public final class TestDataUtil {
     private TestDataUtil(){
 
     }
-    public static AuthorEntity createTestAuthorEntityA() {
-        return AuthorEntity.builder()
-                .name("Abigail Rose")
-                .age(80)
-                .build();
-    }
-    public static AuthorDto createTestAuthorDtoA() {
-        return AuthorDto.builder()
+    public static Author createTestAuthorA() {
+        return Author.builder()
                 .id(1L)
                 .name("Abigail Rose")
                 .age(80)
                 .build();
     }
 
-    public static AuthorEntity createTestAuthorB() {
-        return AuthorEntity.builder()
+    public static Author createTestAuthorB() {
+        return Author.builder()
+                .id(2L)
                 .name("Thomas Cronin")
                 .age(44)
                 .build();
     }
 
-    public static AuthorEntity createTestAuthorC() {
-        return AuthorEntity.builder()
+    public static Author createTestAuthorC() {
+        return Author.builder()
+                .id(3L)
                 .name("Jesse A Casey")
                 .age(24)
                 .build();
     }
 
-    public static BookEntity createTestBookEntityA(final AuthorEntity authorEntity) {
-        return BookEntity.builder()
+    public static Book createTestBookA() {
+        return Book.builder()
                 .isbn("978-1-2345-6789-0")
                 .title("The Shadow in the Attic")
-                .authorEntity(authorEntity)
-                .build();
-    }
-    public static BookDto createTestBookDtoA(final AuthorDto authorDto) {
-        return BookDto.builder()
-                .isbn("978-1-2345-6789-0")
-                .title("The Shadow in the Attic")
-                .author(authorDto)
+                .authorId(1L)
                 .build();
     }
 
-    public static BookEntity createTestBookB(final AuthorEntity authorEntity) {
-        return BookEntity.builder()
+    public static Book createTestBookB() {
+        return Book.builder()
                 .isbn("978-1-2345-6789-1")
                 .title("Beyond the Horizon")
-                .authorEntity(authorEntity)
+                .authorId(1L)
                 .build();
     }
 
-    public static BookEntity createTestBookC(final AuthorEntity authorEntity) {
-        return BookEntity.builder()
+    public static Book createTestBookC() {
+        return Book.builder()
                 .isbn("978-1-2345-6789-2")
                 .title("The Last Ember")
-                .authorEntity(authorEntity)
+                .authorId(1L)
                 .build();
     }
 }
